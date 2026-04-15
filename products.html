@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>STORE</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTUM | STORE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <canvas id="bg"></canvas>
 
-<canvas id="bg"></canvas>
+    <nav class="nav">
+        <span onclick="goHome()">HOME</span> • 
+        <span onclick="goProducts()">PRODUCTS</span> • 
+        <span onclick="goDiscord()">DISCORD</span>
+    </nav>
 
-<div class="nav">
-  <span onclick="goHome()">HOME</span> • 
-  <span onclick="goProducts()">PRODUCTS</span> • 
-  <span onclick="goDiscord()">DISCORD</span>
-</div>
+    <div class="products-page">
+        <h1 class="page-title">STORE</h1>
+        <div class="product-grid">
+            <div class="product">
+                <h2>Elite Tool</h2>
+                <p class="price">$20</p>
+                <button class="buy-btn" onclick="buy('Elite Tool')">Buy Now</button>
+            </div>
+            <div class="product">
+                <h2>Premium Access</h2>
+                <p class="price">$50</p>
+                <button class="buy-btn" onclick="buy('Premium Access')">Buy Now</button>
+            </div>
+        </div>
+    </div>
 
-<div class="products-page">
-  <h1>STORE</h1>
-
-  <div class="product">
-    <h2>Elite Tool</h2>
-    <p>$20</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-
-  <div class="product">
-    <h2>Premium Access</h2>
-    <p>$50</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-</div>
-
-<div class="watermark">KRUSSTY™</div>
-
-<script src="script.js"></script>
+    <div class="watermark">KRUSSTY™</div>
+    <script src="script.js"></script>
 </body>
 </html>
