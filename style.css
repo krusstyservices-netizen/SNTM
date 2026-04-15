@@ -91,9 +91,16 @@ body {
 
 .tagline {
     font-size: 1.5rem;
-    color: #00ff00;
+    color: #ff8c00;
     margin-bottom: 30px;
     letter-spacing: 3px;
+    transition: all 0.3s;  /* Smooth hover */
+}
+
+.tagline:hover {
+    color: #ffd700;  /* Gold on hover */
+    text-shadow: 0 0 10px #ffd700;
+    transform: scale(1.05);
 }
 
 .discord-btn, .buy-btn {
