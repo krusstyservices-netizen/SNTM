@@ -21,15 +21,20 @@
         <div class="product-grid">
             <div class="product-card">
                 <h2>Elite Tool</h2>
-                <p class="price">$20</p>
-                <button class="buy-btn" onclick="buy('Elite Tool')">PURCHASE</button>
+                <p class="price">$20.00</p>
+                <button class="buy-btn" onclick="buy('Elite Tool')">ADD TO CART</button>
             </div>
             <div class="product-card">
                 <h2>Premium Access</h2>
-                <p class="price">$50</p>
-                <button class="buy-btn" onclick="buy('Premium Access')">PURCHASE</button>
+                <p class="price">$50.00</p>
+                <button class="buy-btn" onclick="buy('Premium Access')">ADD TO CART</button>
             </div>
         </div>
+    </div>
+
+    <div class="cart-floating-btn" onclick="toggleCart()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
     </div>
 
     <script src="script.js"></script>
