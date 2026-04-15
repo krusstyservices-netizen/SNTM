@@ -5,7 +5,6 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    /* Dark background with a subtle gold spotlight in the center */
     background: radial-gradient(circle at center, #2e2800 0%, #000000 80%);
     color: white;
     font-family: 'Inter', sans-serif;
@@ -21,7 +20,6 @@ body, html {
     pointer-events: none;
 }
 
-/* Watermark: Top Right */
 .watermark {
     position: fixed;
     top: 20px;
@@ -34,7 +32,6 @@ body, html {
     z-index: 100;
 }
 
-/* Nav Bar */
 .nav {
     position: absolute;
     top: 30px;
@@ -56,7 +53,6 @@ body, html {
 .nav span:hover { color: white; }
 .nav .discord-link { color: #5865F2; font-weight: bold; }
 
-/* The Hero Section */
 .center-content {
     position: absolute;
     top: 50%;
@@ -72,7 +68,6 @@ body, html {
     letter-spacing: 12px;
     margin: 0;
     color: #ffde37;
-    /* High-intensity Gold Glow */
     text-shadow: 0 0 15px rgba(255, 222, 55, 0.7), 
                  0 0 45px rgba(255, 222, 55, 0.4);
 }
@@ -89,7 +84,6 @@ body, html {
     opacity: 0.9;
 }
 
-/* Discord Button */
 .discord-btn {
     background-color: #5865F2;
     color: white;
@@ -110,7 +104,6 @@ body, html {
     transform: translateY(-2px);
 }
 
-/* Store Styles */
 .store-container { padding-top: 140px; text-align: center; }
 .product-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 .product-card {
