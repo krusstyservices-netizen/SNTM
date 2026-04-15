@@ -8,6 +8,7 @@
 </head>
 <body>
     <canvas id="matrix"></canvas>
+    
     <div class="watermark">KRUSSTY™</div>
 
     <nav class="nav">
@@ -19,7 +20,12 @@
     <div class="center-content">
         <h1 class="gold-glow">SANTUM</h1>
         <p class="tagline">QUALITY FIRST</p>
-        <button class="discord-btn" onclick="goDiscord()">shop</button>
+        <button class="discord-btn" onclick="goDiscord()">SUPPORT DISCORD</button>
+    </div>
+
+    <div class="cart-floating-btn" onclick="toggleCart()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
     </div>
 
     <script src="script.js"></script>
