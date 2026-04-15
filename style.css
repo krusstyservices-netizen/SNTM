@@ -1,79 +1,93 @@
-body {
-  margin: 0;
-  background: black;
-  color: gold;
-  font-family: Arial;
-  overflow: hidden;
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #050505;
+    color: white;
+    font-family: 'Inter', sans-serif;
 }
 
-/* MATRIX */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Sits behind everything */
 }
 
-/* NAV */
 .nav {
-  position: fixed;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 4px;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    z-index: 10;
 }
 
-.nav span {
-  cursor: pointer;
+.nav span, .nav a {
+    cursor: pointer;
+    margin: 0 10px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
 }
 
-.nav span:hover {
-  color: #FFD700;
-  text-shadow: 0 0 10px gold;
-}
+.nav span:hover { opacity: 0.5; }
 
-/* CENTER */
 .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-/* TITLE */
 h1 {
-  font-size: 80px;
-  text-shadow: 0 0 30px gold;
+    font-size: 4rem;
+    margin: 0;
+    letter-spacing: 10px;
 }
 
-/* QUALITY FIRST (MOVED LEFT) */
 .tagline {
-  color: #FFD700;
-  position: relative;
-  left: -50px;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    opacity: 0.7;
 }
 
-/* SHOP BUTTON (TEXT ONLY YELLOW) */
 .enter-btn {
-  background: transparent;
-  border: none;
-  color: #FFD700;
-  font-size: 16px;
-  cursor: pointer;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 2px;
 }
 
-/* PRODUCTS PAGE */
-.products-page {
-  padding: 100px;
+.enter-btn:hover {
+    background: white;
+    color: black;
 }
 
-.product {
-  margin: 20px;
-}
-
-/* WATERMARK */
 .watermark {
-  position: fixed;
-  top: 10px;
-  right: 15px;
-  color: rgba(255,215,0,0.25);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.6rem;
+    opacity: 0.3;
+}
+
+/* Page Switching Logic */
+.content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
 }
