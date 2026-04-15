@@ -1,51 +1,120 @@
-// NAVIGATION
-function goHome() {
-  window.location.href = "index.html";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-function goProducts() {
-  window.location.href = "products.html";
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
 }
 
-// DISCORD
-function goDiscord() {
-  window.location.href = "https://discord.gg/QSE4PpsWr7";
+/* Watermark fixed to Top Right */
+.watermark {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #ffde37;
+    opacity: 0.5;
+    font-weight: bold;
+    z-index: 100;
 }
 
-// BUY BUTTON
-function buy() {
-  alert("Payment system coming soon");
+.nav {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
-// MATRIX BACKGROUND
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "SANTUMXYZ";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  ctx.fillStyle = "gold";
-  ctx.font = fontSize + "px monospace";
-
-  for(let i=0;i<drops.length;i++){
-    const text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-    if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
-      drops[i]=0;
-    }
-
-    drops[i]++;
-  }
+.nav span {
+    cursor: pointer;
+    margin: 0 15px;
+    transition: 0.3s;
+    opacity: 0.6;
 }
 
-setInterval(draw, 33);
+.nav span:hover { opacity: 1; color: #ffde37; }
+
+/* Gold Glow Effect */
+.gold-glow {
+    font-size: 7rem;
+    color: #ffde37;
+    margin: 0;
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px rgba(255, 222, 55, 0.7), 
+                 0 0 40px rgba(255, 222, 55, 0.3);
+}
+
+.gold-glow.small { font-size: 3rem; margin-bottom: 40px; }
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.tagline {
+    letter-spacing: 8px;
+    color: #ffde37;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.shop-btn, .buy-btn {
+    background: #ffde37;
+    border: none;
+    color: black;
+    padding: 12px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.shop-btn:hover { background: white; transform: scale(1.05); }
+
+/* Store Layout */
+.store-container {
+    padding-top: 120px;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: rgba(255, 222, 55, 0.05);
+    border: 1px solid rgba(255, 222, 55, 0.2);
+    padding: 40px;
+    width: 220px;
+    transition: 0.3s;
+}
+
+.product-card:hover { border-color: #ffde37; background: rgba(255, 222, 55, 0.1); }
+
+.price { font-size: 1.5rem; margin: 20px 0; color: #ffde37; }
