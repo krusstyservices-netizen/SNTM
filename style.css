@@ -1,93 +1,51 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #050505;
-    color: white;
-    font-family: 'Inter', sans-serif;
+// NAVIGATION
+function goHome() {
+  window.location.href = "index.html";
 }
 
-#bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Sits behind everything */
+function goProducts() {
+  window.location.href = "products.html";
 }
 
-.nav {
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    text-align: center;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    z-index: 10;
+// DISCORD
+function goDiscord() {
+  window.location.href = "https://discord.gg/QSE4PpsWr7";
 }
 
-.nav span, .nav a {
-    cursor: pointer;
-    margin: 0 10px;
-    transition: 0.3s;
-    text-decoration: none;
-    color: white;
+// BUY BUTTON
+function buy() {
+  alert("Payment system coming soon");
 }
 
-.nav span:hover { opacity: 0.5; }
+// MATRIX BACKGROUND
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "SANTUMXYZ";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = "gold";
+  ctx.font = fontSize + "px monospace";
+
+  for(let i=0;i<drops.length;i++){
+    const text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+    if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
+      drops[i]=0;
+    }
+
+    drops[i]++;
+  }
 }
 
-h1 {
-    font-size: 4rem;
-    margin: 0;
-    letter-spacing: 10px;
-}
-
-.tagline {
-    font-size: 0.7rem;
-    letter-spacing: 5px;
-    margin-bottom: 30px;
-    opacity: 0.7;
-}
-
-.enter-btn {
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 10px 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    letter-spacing: 2px;
-}
-
-.enter-btn:hover {
-    background: white;
-    color: black;
-}
-
-.watermark {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 0.6rem;
-    opacity: 0.3;
-}
-
-/* Page Switching Logic */
-.content-section {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.content-section.active {
-    display: block;
-    opacity: 1;
-}
+setInterval(draw, 33);
