@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="bg"></canvas>
+    <canvas id="matrix"></canvas>
+    <div class="watermark">KRUSSTY™</div>
 
     <nav class="nav">
         <span onclick="goHome()">HOME</span> • 
@@ -15,23 +16,22 @@
         <span onclick="goDiscord()">DISCORD</span>
     </nav>
 
-    <div class="products-page">
-        <h1 class="page-title">STORE</h1>
+    <div class="store-container">
+        <h1 class="gold-glow small">STORE</h1>
         <div class="product-grid">
-            <div class="product">
+            <div class="product-card">
                 <h2>Elite Tool</h2>
                 <p class="price">$20</p>
-                <button class="buy-btn" onclick="buy('Elite Tool')">Buy Now</button>
+                <button class="buy-btn" onclick="buy('Elite Tool')">Purchase</button>
             </div>
-            <div class="product">
+            <div class="product-card">
                 <h2>Premium Access</h2>
                 <p class="price">$50</p>
-                <button class="buy-btn" onclick="buy('Premium Access')">Buy Now</button>
+                <button class="buy-btn" onclick="buy('Premium Access')">Purchase</button>
             </div>
         </div>
     </div>
 
-    <div class="watermark">KRUSSTY™</div>
     <script src="script.js"></script>
 </body>
 </html>
