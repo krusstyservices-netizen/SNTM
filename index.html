@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KRUSSTY</title>
+<title>SANTUM</title>
 
 <style>
 body {
@@ -13,7 +13,7 @@ body {
   overflow: hidden;
 }
 
-/* MATRIX BG */
+/* MATRIX BACKGROUND */
 canvas {
   position: fixed;
   top: 0;
@@ -22,12 +22,22 @@ canvas {
 
 /* NAV */
 .nav {
-  position: absolute;
+  position: fixed;
   top: 20px;
   width: 100%;
   text-align: center;
   letter-spacing: 4px;
   font-size: 14px;
+}
+
+.nav span {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav span:hover {
+  color: #FFD700;
+  text-shadow: 0 0 10px gold;
 }
 
 /* CENTER */
@@ -40,8 +50,13 @@ canvas {
 }
 
 h1 {
-  font-size: 70px;
-  text-shadow: 0 0 25px gold;
+  font-size: 80px;
+  text-shadow: 0 0 30px gold, 0 0 60px gold;
+}
+
+p {
+  color: #aaa;
+  letter-spacing: 4px;
 }
 
 button {
@@ -51,9 +66,15 @@ button {
   color: white;
   cursor: pointer;
   margin-top: 20px;
+  transition: 0.3s;
 }
 
-/* PRODUCTS */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #5865F2;
+}
+
+/* PRODUCTS PAGE */
 .products {
   display: none;
   padding: 50px;
@@ -63,41 +84,15 @@ button {
   margin: 20px;
 }
 
-/* WATERMARKS */
-.watermark-main {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  color: rgba(255,215,0,0.2);
-  font-size: 12px;
-  letter-spacing: 4px;
-}
-
-.watermark-top {
+/* WATERMARK (TOP RIGHT ONLY) */
+.watermark {
   position: fixed;
   top: 10px;
-  left: 15px;
-  color: rgba(255,215,0,0.08);
-  font-size: 10px;
-}
-
-.watermark-center {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 120px;
-  color: rgba(255,215,0,0.03);
+  right: 15px;
+  color: rgba(255, 215, 0, 0.25);
+  font-size: 12px;
+  letter-spacing: 3px;
   pointer-events: none;
-}
-
-.watermark-hidden {
-  position: fixed;
-  bottom: 50%;
-  right: 30%;
-  font-size: 20px;
-  color: rgba(255,215,0,0.05);
-  transform: rotate(-30deg);
 }
 </style>
 </head>
@@ -108,12 +103,14 @@ button {
 
 <!-- NAV -->
 <div class="nav">
-  HOME • PRODUCTS • DISCORD
+  <span onclick="goHome()">HOME</span> • 
+  <span onclick="showProducts()">PRODUCTS</span> • 
+  <span onclick="goDiscord()">DISCORD</span>
 </div>
 
 <!-- HOME -->
 <div class="center" id="home">
-  <h1>KRUSSTY</h1>
+  <h1>SANTUM</h1>
   <p>QUALITY FIRST</p>
   <button onclick="showProducts()">ENTER STORE</button>
 </div>
@@ -137,14 +134,11 @@ button {
   <button onclick="goHome()">Back</button>
 </div>
 
-<!-- WATERMARKS -->
-<div class="watermark-main">KRUSSTY™</div>
-<div class="watermark-top">[KRUSSTY_SYS]</div>
-<div class="watermark-center">KRUSSTY</div>
-<div class="watermark-hidden">KRSTY</div>
+<!-- WATERMARK -->
+<div class="watermark">SANTUM™</div>
 
 <script>
-// PAGE SWITCH
+// NAVIGATION
 function showProducts() {
   document.getElementById("home").style.display = "none";
   document.getElementById("products").style.display = "block";
@@ -155,19 +149,23 @@ function goHome() {
   document.getElementById("home").style.display = "block";
 }
 
-// BUY (placeholder)
-function buy() {
-  alert("Stripe integration here");
+function goDiscord() {
+  window.open("https://discord.gg/YOURINVITE");
 }
 
-// MATRIX BG
+// BUY BUTTON (placeholder)
+function buy() {
+  alert("Connect Stripe here");
+}
+
+// MATRIX BACKGROUND
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const letters = "KRUSSTYXYZ";
+const letters = "SANTUMXYZ";
 const fontSize = 16;
 const columns = canvas.width / fontSize;
 const drops = Array(Math.floor(columns)).fill(1);
