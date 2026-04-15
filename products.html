@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="nav">
+  <span onclick="goHome()">HOME</span> • 
+  <span onclick="goProducts()">PRODUCTS</span> • 
+  <span onclick="goDiscord()">DISCORD</span>
+</div>
+
+<div class="products-page">
+  <h1>STORE</h1>
+
+  <div class="product">
+    <h2>Elite Tool</h2>
+    <p>$20</p>
+    <button onclick="buy()">Buy</button>
+  </div>
+
+  <div class="product">
+    <h2>Premium Access</h2>
+    <p>$50</p>
+    <button onclick="buy()">Buy</button>
+  </div>
+</div>
+
+<div class="watermark">KRUSSTY™</div>
+
+<script src="script.js"></script>
+</body>
+</html>
