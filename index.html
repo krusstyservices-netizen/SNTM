@@ -2,197 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KRUSSTY</title>
-
-<style>
-body {
-  margin: 0;
-  background: black;
-  color: gold;
-  font-family: Arial;
-  overflow: hidden;
-}
-
-/* MATRIX BG */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-/* NAV */
-.nav {
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 4px;
-  font-size: 14px;
-}
-
-/* CENTER */
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-h1 {
-  font-size: 70px;
-  text-shadow: 0 0 25px gold;
-}
-
-button {
-  padding: 12px 25px;
-  background: #5865F2;
-  border: none;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-/* PRODUCTS */
-.products {
-  display: none;
-  padding: 50px;
-}
-
-.product {
-  margin: 20px;
-}
-
-/* WATERMARKS */
-.watermark-main {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  color: rgba(255,215,0,0.2);
-  font-size: 12px;
-  letter-spacing: 4px;
-}
-
-.watermark-top {
-  position: fixed;
-  top: 10px;
-  left: 15px;
-  color: rgba(255,215,0,0.08);
-  font-size: 10px;
-}
-
-.watermark-center {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 120px;
-  color: rgba(255,215,0,0.03);
-  pointer-events: none;
-}
-
-.watermark-hidden {
-  position: fixed;
-  bottom: 50%;
-  right: 30%;
-  font-size: 20px;
-  color: rgba(255,215,0,0.05);
-  transform: rotate(-30deg);
-}
-</style>
+<title>SANTUM</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <canvas id="bg"></canvas>
 
-<!-- NAV -->
 <div class="nav">
-  HOME • PRODUCTS • DISCORD
+  <span onclick="goHome()">HOME</span> • 
+  <span onclick="goProducts()">PRODUCTS</span> • 
+  <span onclick="goDiscord()">DISCORD</span>
 </div>
 
-<!-- HOME -->
-<div class="center" id="home">
-  <h1>KRUSSTY</h1>
-  <p>QUALITY FIRST</p>
-  <button onclick="showProducts()">ENTER STORE</button>
+<div class="center">
+  <h1>SANTUM</h1>
+  <p class="tagline">QUALITY FIRST</p>
+
+  <!-- YELLOW TEXT BUTTON -->
+  <button class="enter-btn" onclick="goProducts()">ENTER STORE</button>
 </div>
 
-<!-- PRODUCTS -->
-<div class="products" id="products">
-  <h1>Products</h1>
+<div class="watermark">KRUSSTY™</div>
 
-  <div class="product">
-    <h2>Elite Tool</h2>
-    <p>$20</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-
-  <div class="product">
-    <h2>Premium Access</h2>
-    <p>$50</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-
-  <button onclick="goHome()">Back</button>
-</div>
-
-<!-- WATERMARKS -->
-<div class="watermark-main">KRUSSTY™</div>
-<div class="watermark-top">[KRUSSTY_SYS]</div>
-<div class="watermark-center">KRUSSTY</div>
-<div class="watermark-hidden">KRSTY</div>
-
-<script>
-// PAGE SWITCH
-function showProducts() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("products").style.display = "block";
-}
-
-function goHome() {
-  document.getElementById("products").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}
-
-// BUY (placeholder)
-function buy() {
-  alert("Stripe integration here");
-}
-
-// MATRIX BG
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "KRUSSTYXYZ";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  ctx.fillStyle = "gold";
-  ctx.font = fontSize + "px monospace";
-
-  for(let i=0;i<drops.length;i++){
-    const text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-    if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
-      drops[i]=0;
-    }
-
-    drops[i]++;
-  }
-}
-
-setInterval(draw, 33);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
