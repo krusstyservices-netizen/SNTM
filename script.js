@@ -1,51 +1,85 @@
-// NAVIGATION
-function goHome() {
-  window.location.href = "index.html";
+body {
+  margin: 0;
+  background: black;
+  color: gold;
+  font-family: Arial;
+  overflow: hidden;
 }
 
-function goProducts() {
-  window.location.href = "products.html";
+/* MATRIX */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-// DISCORD LINK (WORKING)
-function goDiscord() {
-  window.location.href = "https://discord.gg/QSE4PpsWr7";
+/* NAV */
+.nav {
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 4px;
 }
 
-// BUY BUTTON
-function buy() {
-  alert("Connect payment system here");
+.nav span {
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-// MATRIX BACKGROUND
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "SANTUMXYZ";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  ctx.fillStyle = "gold";
-  ctx.font = fontSize + "px monospace";
-
-  for(let i=0;i<drops.length;i++){
-    const text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-    if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
-      drops[i]=0;
-    }
-
-    drops[i]++;
-  }
+.nav span:hover {
+  color: #FFD700;
+  text-shadow: 0 0 10px gold;
 }
 
-setInterval(draw, 33);
+/* CENTER */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* TITLE */
+h1 {
+  font-size: 80px;
+  text-shadow: 0 0 30px gold;
+}
+
+/* QUALITY FIRST (LEFT) */
+.tagline {
+  color: #FFD700;
+  position: relative;
+  left: -50px;
+}
+
+/* SHOP BUTTON */
+.enter-btn {
+  background: transparent;
+  border: none;
+  color: #FFD700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.enter-btn:hover {
+  text-shadow: 0 0 10px gold;
+}
+
+/* PRODUCTS PAGE */
+.products-page {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.product {
+  margin: 20px;
+}
+
+/* WATERMARK */
+.watermark {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  color: rgba(255,215,0,0.25);
+}
