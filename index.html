@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SANTUM</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTUM | QUALITY FIRST</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <canvas id="matrix"></canvas>
 
-<canvas id="bg"></canvas>
+    <div class="watermark">KRUSSTY™</div>
 
-<!-- NAV -->
-<div class="nav">
-  <span onclick="goHome()">HOME</span> • 
-  <span onclick="goProducts()">PRODUCTS</span> • 
-  <span onclick="goDiscord()">DISCORD</span>
-</div>
+    <nav class="nav">
+        <span onclick="goHome()">HOME</span> • 
+        <span onclick="goProducts()">PRODUCTS</span> • 
+        <span onclick="goDiscord()">DISCORD</span>
+    </nav>
 
-<!-- HOME -->
-<div class="center">
-  <h1>SANTUM</h1>
-  <p class="tagline">QUALITY FIRST</p>
+    <div class="center-content">
+        <h1 class="gold-glow">SANTUM</h1>
+        <p class="tagline">QUALITY FIRST</p>
+        <button class="shop-btn" onclick="goProducts()">SHOP</button>
+    </div>
 
-  <!-- SHOP BUTTON -->
-  <button class="enter-btn" onclick="goProducts()">SHOP</button>
-</div>
-
-<!-- WATERMARK -->
-<div class="watermark">KRUSSTY™</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
