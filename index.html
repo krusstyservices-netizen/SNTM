@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SANTUM</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTUM | QUALITY FIRST</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <canvas id="matrix"></canvas>
+    <div class="watermark">KRUSSTY™</div>
 
-<canvas id="bg"></canvas>
+    <nav class="nav">
+        <span onclick="goHome()">HOME</span>
+        <span onclick="goProducts()">PRODUCTS</span>
+        <span onclick="goDiscord()" class="discord-link">DISCORD</span>
+    </nav>
 
-<div class="nav">
-  <span onclick="goHome()">HOME</span> • 
-  <span onclick="goProducts()">PRODUCTS</span> • 
-  <span onclick="goDiscord()">DISCORD</span>
-</div>
+    <div class="center-content">
+        <h1 class="gold-glow">SANTUM</h1>
+        <p class="tagline">QUALITY FIRST</p>
+        <button class="discord-btn" onclick="goDiscord()">JOIN DISCORD</button>
+    </div>
 
-<div class="center">
-  <h1>SANTUM</h1>
-  <p class="tagline">QUALITY FIRST</p>
-
-  <!-- YELLOW TEXT BUTTON -->
-  <button class="enter-btn" onclick="goProducts()">ENTER STORE</button>
-</div>
-
-<div class="watermark">KRUSSTY™</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
