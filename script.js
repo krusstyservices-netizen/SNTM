@@ -1,95 +1,42 @@
-body {
-  margin: 0;
-  background: black;
-  color: gold;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+// Navigation & Discord
+function goHome() { window.location.href = "index.html"; }
+function goProducts() { window.location.href = "products.html"; }
+function goDiscord() { window.open("https://discord.gg/santum", "_blank"); }
+function buy(item) { alert("Redirecting to purchase: " + item); }
+
+// Matrix Animation
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "SANTUM01";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = Array(Math.floor(columns)).fill(1);
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#ffde37"; // Gold Matrix
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
 }
 
-/* MATRIX */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1; /* ✅ FIX: keeps background behind everything */
-}
+setInterval(drawMatrix, 35);
 
-/* NAV */
-.nav {
-  position: fixed;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 4px;
-  font-size: 14px;
-  z-index: 10; /* ✅ FIX: stays above canvas */
-}
-
-.nav span {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav span:hover {
-  color: #FFD700;
-  text-shadow: 0 0 10px gold;
-}
-
-/* CENTER */
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; /* ✅ FIX: centers text */
-}
-
-/* TITLE */
-h1 {
-  font-size: 80px;
-  text-shadow: 0 0 30px gold;
-  margin-bottom: 10px;
-}
-
-/* QUALITY FIRST (LEFT BUT CLEAN) */
-.tagline {
-  color: #FFD700;
-  margin-left: -40px; /* ✅ better than position:left */
-}
-
-/* SHOP BUTTON */
-.enter-btn {
-  background: transparent;
-  border: none;
-  color: #FFD700;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-.enter-btn:hover {
-  text-shadow: 0 0 10px gold;
-}
-
-/* PRODUCTS PAGE */
-.products-page {
-  text-align: center;
-  margin-top: 150px;
-  z-index: 5;
-}
-
-.product {
-  margin: 20px;
-}
-
-/* WATERMARK */
-.watermark {
-  position: fixed;
-  top: 10px;
-  right: 15px;
-  color: rgba(255,215,0,0.25);
-  font-size: 12px;
-  letter-spacing: 3px;
-  pointer-events: none;
-  z-index: 10;
-}
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
