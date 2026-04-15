@@ -3,36 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANTUM</title>
+    <title>SANTUM | HOME</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="bg"></canvas>
 
-<canvas id="bg"></canvas>
+    <nav class="nav">
+        <span onclick="goHome()">HOME</span> • 
+        <span onclick="goProducts()">PRODUCTS</span> • 
+        <span onclick="goDiscord()">DISCORD</span>
+    </nav>
 
-<nav class="nav">
-    <span onclick="showPage('home')">HOME</span> • 
-    <span onclick="showPage('products')">PRODUCTS</span> • 
-    <a href="https://discord.gg/yourlink" target="_blank">DISCORD</a>
-</nav>
-
-<div id="home" class="content-section active">
     <div class="center">
         <h1>SANTUM</h1>
         <p class="tagline">QUALITY FIRST</p>
-        <button class="enter-btn" onclick="showPage('products')">SHOP</button>
+        <button class="enter-btn" onclick="goProducts()">SHOP</button>
     </div>
-</div>
 
-<div id="products" class="content-section">
-    <div class="center">
-        <h1>PRODUCTS</h1>
-        <p>Premium collections coming soon.</p>
-    </div>
-</div>
-
-<div class="watermark">KRUSSTY™</div>
-
-<script src="script.js"></script>
+    <div class="watermark">KRUSSTY™</div>
+    <script src="script.js"></script>
 </body>
 </html>
