@@ -39,16 +39,20 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
+/* TITLE */
 h1 {
   font-size: 80px;
   text-shadow: 0 0 30px gold;
 }
 
+/* QUALITY FIRST (MOVED LEFT) */
 .tagline {
   color: #FFD700;
+  position: relative;
+  left: -50px;
 }
 
-/* ENTER STORE BUTTON (TEXT ONLY YELLOW) */
+/* SHOP BUTTON (TEXT ONLY YELLOW) */
 .enter-btn {
   background: transparent;
   border: none;
