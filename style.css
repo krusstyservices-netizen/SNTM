@@ -6,7 +6,7 @@ body {
   overflow: hidden;
 }
 
-/* MATRIX BG */
+/* MATRIX */
 canvas {
   position: fixed;
   top: 0;
@@ -20,12 +20,10 @@ canvas {
   width: 100%;
   text-align: center;
   letter-spacing: 4px;
-  font-size: 14px;
 }
 
 .nav span {
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .nav span:hover {
@@ -39,38 +37,29 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
 }
 
 h1 {
   font-size: 80px;
-  text-shadow: 0 0 30px gold, 0 0 60px gold;
+  text-shadow: 0 0 30px gold;
 }
 
-p {
-  color: #aaa;
-  letter-spacing: 4px;
+.tagline {
+  color: #FFD700;
 }
 
-button {
-  padding: 12px 25px;
-  background: #5865F2;
+/* ENTER STORE BUTTON (TEXT ONLY YELLOW) */
+.enter-btn {
+  background: transparent;
   border: none;
-  color: white;
+  color: #FFD700;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
-  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #5865F2;
-}
-
-/* PRODUCTS */
-.products {
-  display: none;
-  padding: 50px;
+/* PRODUCTS PAGE */
+.products-page {
+  padding: 100px;
 }
 
 .product {
@@ -82,8 +71,5 @@ button:hover {
   position: fixed;
   top: 10px;
   right: 15px;
-  color: rgba(255, 215, 0, 0.25);
-  font-size: 12px;
-  letter-spacing: 3px;
-  pointer-events: none;
+  color: rgba(255,215,0,0.25);
 }
