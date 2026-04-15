@@ -3,194 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>SANTUM</title>
-
-<style>
-body {
-  margin: 0;
-  background: black;
-  color: gold;
-  font-family: Arial;
-  overflow: hidden;
-}
-
-/* MATRIX BACKGROUND */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-/* NAV */
-.nav {
-  position: fixed;
-  top: 20px;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 4px;
-  font-size: 14px;
-}
-
-.nav span {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav span:hover {
-  color: #FFD700;
-  text-shadow: 0 0 10px gold;
-}
-
-/* CENTER */
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-h1 {
-  font-size: 80px;
-  text-shadow: 0 0 30px gold, 0 0 60px gold;
-}
-
-p {
-  color: #aaa;
-  letter-spacing: 4px;
-}
-
-button {
-  padding: 12px 25px;
-  background: #5865F2;
-  border: none;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #5865F2;
-}
-
-/* PRODUCTS PAGE */
-.products {
-  display: none;
-  padding: 50px;
-}
-
-.product {
-  margin: 20px;
-}
-
-/* WATERMARK (TOP RIGHT ONLY) */
-.watermark {
-  position: fixed;
-  top: 10px;
-  right: 15px;
-  color: rgba(255, 215, 0, 0.25);
-  font-size: 12px;
-  letter-spacing: 3px;
-  pointer-events: none;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <canvas id="bg"></canvas>
 
-<!-- NAV -->
 <div class="nav">
   <span onclick="goHome()">HOME</span> • 
-  <span onclick="showProducts()">PRODUCTS</span> • 
+  <span onclick="goProducts()">PRODUCTS</span> • 
   <span onclick="goDiscord()">DISCORD</span>
 </div>
 
-<!-- HOME -->
-<div class="center" id="home">
+<div class="center">
   <h1>SANTUM</h1>
-  <p>QUALITY FIRST</p>
-  <button onclick="showProducts()">ENTER STORE</button>
+  <p class="tagline">QUALITY FIRST</p>
+
+  <!-- YELLOW TEXT BUTTON -->
+  <button class="enter-btn" onclick="goProducts()">ENTER STORE</button>
 </div>
 
-<!-- PRODUCTS -->
-<div class="products" id="products">
-  <h1>Products</h1>
+<div class="watermark">KRUSSTY™</div>
 
-  <div class="product">
-    <h2>Elite Tool</h2>
-    <p>$20</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-
-  <div class="product">
-    <h2>Premium Access</h2>
-    <p>$50</p>
-    <button onclick="buy()">Buy</button>
-  </div>
-
-  <button onclick="goHome()">Back</button>
-</div>
-
-<!-- WATERMARK -->
-<div class="watermark">SANTUM™</div>
-
-<script>
-// NAVIGATION
-function showProducts() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("products").style.display = "block";
-}
-
-function goHome() {
-  document.getElementById("products").style.display = "none";
-  document.getElementById("home").style.display = "block";
-}
-
-function goDiscord() {
-  window.open("https://discord.gg/YOURINVITE");
-}
-
-// BUY BUTTON (placeholder)
-function buy() {
-  alert("Connect Stripe here");
-}
-
-// MATRIX BACKGROUND
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "SANTUMXYZ";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-
-  ctx.fillStyle = "gold";
-  ctx.font = fontSize + "px monospace";
-
-  for(let i=0;i<drops.length;i++){
-    const text = letters[Math.floor(Math.random()*letters.length)];
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-    if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
-      drops[i]=0;
-    }
-
-    drops[i]++;
-  }
-}
-
-setInterval(draw, 33);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
