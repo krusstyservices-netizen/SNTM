@@ -1,21 +1,20 @@
 // NAVIGATION
-function showProducts() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("products").style.display = "block";
-}
-
 function goHome() {
-  document.getElementById("products").style.display = "none";
-  document.getElementById("home").style.display = "block";
+  window.location.href = "index.html";
 }
 
+function goProducts() {
+  window.location.href = "products.html";
+}
+
+// DISCORD LINK (WORKING)
 function goDiscord() {
-  window.open("https://discord.gg/YOURINVITE");
+  window.location.href = "https://discord.gg/QSE4PpsWr7";
 }
 
 // BUY BUTTON
 function buy() {
-  alert("Connect Stripe here");
+  alert("Connect payment system here");
 }
 
 // MATRIX BACKGROUND
